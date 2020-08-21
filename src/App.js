@@ -8,6 +8,7 @@ import {
 
 import Products from './Products'
 import Logos from './Logos'
+import Categories from './Categories'
 
 // This site has 3 pages, all of which are rendered
 // dynamically in the browser (not server rendered).
@@ -32,6 +33,9 @@ export default function BasicExample() {
           <li>
             <Link to="/logos">Logos</Link>
           </li>
+          <li>
+            <Link to="/categories">Categories</Link>
+          </li>
         </ul>
 
         <hr />
@@ -52,6 +56,9 @@ export default function BasicExample() {
           </Route>
           <Route path="/logos">
             <Logos />
+          </Route>
+          <Route path="categories">
+            <Categories />
           </Route>
         </Switch>
       </div>
