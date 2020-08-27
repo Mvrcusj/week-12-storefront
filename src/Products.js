@@ -11,7 +11,7 @@ class Products extends React.Component {
     componentDidMount() {
         this.callApi()
         .then((response) => { 
-            this.setState({ response: response.length + ' items found' }) 
+            this.setState({ response }) 
         } )
         .catch(err => console.log(err));
     }
@@ -29,6 +29,24 @@ class Products extends React.Component {
             <div>
                 <div>Products Place holder</div>
                 <div>{this.state.response}</div>
+            </div>
+        )
+    }
+
+    render () {
+        const { response } = this.state;
+        const itemsList = []
+
+        for (const [index, item] of response.entries()) {
+            itemsList.push(<li key={index}>{item.title}</li>)
+        }
+
+        return (
+            <div>
+                <h1>{response.length} items found</h1>
+                <ul>
+                    {itemsList}
+                </ul>
             </div>
         )
     }
